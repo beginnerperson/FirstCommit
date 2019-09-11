@@ -1,0 +1,15 @@
+可以判断8080、8009端口已经被占用，通过以下方法，找出被哪个进程占用：
+
+在命令提示符下，输入netstat -aon | findstr 8080
+
+获得该端口被PID为848的进程占用
+
+输入tasklist |findstr 848:
+
+可以获得当前端口被javaw.exe占用
+
+继续输入taskkill -F -IM javaw.exe或taskkill /pid 848 /F
+
+结束该进程
+
+再次在eclipse中启动tomcat正常
